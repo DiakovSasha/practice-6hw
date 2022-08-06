@@ -15,9 +15,11 @@ const images = [
 const galleryEl = document.querySelector('.gallery');
 
 function markUpGallery({ url, alt }) {
-  return `<li><img src="${url}" alt="${alt}" width='480' height='350'></li>`;
+  return `<li><img src="${url}" alt="${alt}" width='640' height='480'></li>`;
 }
-const createEl = images.map(markUpGallery);
+const createEl = images.map(markUpGallery).join();
+console.log(createEl);
 galleryEl.insertAdjacentHTML('beforeEnd', createEl);
 
-galleryEl.style.cssText = 'list-style: none; display:flex';
+galleryEl.style.cssText =
+  'list-style: none; display:flex;flex-wrap:wrap; gap:10px;';
